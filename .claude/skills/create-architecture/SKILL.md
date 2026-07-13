@@ -15,10 +15,20 @@ primary_owner: tech-director
 1. Choose frontend/backend stack and justify tradeoffs
 2. Define service boundaries and data flow
 3. Document key architecture decisions as ADRs
-4. Get tech-director approval
+4. **Decide on containerization/deployment scope now, with the user, rather than
+   silently picking one:** ask whether to run `/infra-setup` now (full Docker/Compose/
+   CI scaffolding, partial "local Docker only", or none) — see the `/infra-setup`
+   options. Record whichever answer in `docs/architecture.md` under a "Packaging /
+   Deployment" section, explicitly, even if the answer is "deferred — no
+   containerization for v1." Don't leave this implicit in a single stack-choices
+   table row; a decision that isn't surfaced as a choice isn't really a decision the
+   user made.
+5. Get tech-director approval
 
 ## Outputs
-- docs/architecture.md + docs/adr/*.md
+- docs/architecture.md (including the Packaging/Deployment decision from step 4) + docs/adr/*.md
+- If containerization was chosen: `/infra-setup` output (infra/docker/*, docker-compose.yml, etc.)
+  — either run inline as part of this command or explicitly scheduled as the next step.
 
 ## Agents Invoked
 - tech-director
