@@ -1,0 +1,57 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": ".claude/hooks/session-start.sh" }] },
+      { "hooks": [{ "type": "command", "command": ".claude/hooks/detect-gaps.sh" }] }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": ".claude/hooks/validate-commit.sh" },
+          { "type": "command", "command": ".claude/hooks/validate-push.sh" }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": ".claude/hooks/require-design-docs.sh" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": ".claude/hooks/validate-api-contract.sh" }
+        ]
+      }
+    ],
+    "PreCompact": [
+      { "hooks": [{ "type": "command", "command": ".claude/hooks/pre-compact.sh" }] }
+    ],
+    "PostCompact": [
+      { "hooks": [{ "type": "command", "command": ".claude/hooks/post-compact.sh" }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": ".claude/hooks/session-stop.sh" }] }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(npm test*)",
+      "Bash(npm run lint*)",
+      "Bash(pytest*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(rm -rf *)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/secrets/**)"
+    ]
+  }
+}

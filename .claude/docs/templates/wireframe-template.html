@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe — [Screen Name] — [state: default/loading/empty/error]</title>
+<style>
+  /* Low-fidelity wireframe: grayscale only, no brand colors, no real copy polish.
+     Purpose is to validate LAYOUT and INFORMATION HIERARCHY, not visual design. */
+  body { font-family: system-ui, sans-serif; background: #fafafa; margin: 0; }
+  .frame { max-width: 1024px; margin: 24px auto; border: 1px solid #999; background: #fff; }
+  .block { border: 1px dashed #999; background: #eee; color: #555; font-size: 13px;
+           display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .header { height: 56px; }
+  .sidebar { width: 220px; }
+  .layout { display: flex; min-height: 600px; }
+  .main { flex: 1; padding: 16px; box-sizing: border-box; }
+  .row { display: flex; gap: 12px; margin-bottom: 12px; }
+  .placeholder-text { height: 16px; margin-bottom: 8px; }
+  .placeholder-button { height: 36px; width: 100px; }
+  .note { position: fixed; top: 8px; right: 8px; background: #fffbe6; border: 1px solid #d4b106;
+          padding: 6px 10px; font-size: 12px; font-family: system-ui, sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="note">WIREFRAME — layout only, not final visual design</div>
+
+<div class="frame">
+  <div class="block header">Top nav / header placeholder</div>
+  <div class="layout">
+    <div class="block sidebar">Sidebar nav placeholder<br>(menu items go here)</div>
+    <div class="main">
+      <div class="block placeholder-text" style="width:40%"></div>
+      <div class="row">
+        <div class="block" style="flex:1; height:120px">Content block A</div>
+        <div class="block" style="flex:1; height:120px">Content block B</div>
+      </div>
+      <div class="block" style="height:240px; margin-bottom:12px">Main content area (e.g. table/list placeholder)</div>
+      <div class="block placeholder-button">Primary action</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

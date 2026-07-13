@@ -1,0 +1,41 @@
+phases:
+  - id: onboarding
+    name: "Onboarding & Navigation"
+    commands: [start, help, project-stage-detect]
+
+  - id: product
+    name: "Discover & Define (Product)"
+    commands: [brainstorm, prd, user-stories, prioritize, roadmap]
+
+  - id: design
+    name: "Design (UX/UI)"
+    commands: [design-system, wireframe, ux-review, design-review]
+
+  - id: architecture
+    name: "Architect"
+    commands: [create-architecture, api-design, db-schema, architecture-review, infra-setup]
+
+  - id: delivery
+    name: "Build (Stories & Sprints)"
+    commands: [create-epics, create-stories, dev-story, sprint-plan, sprint-status, story-done, estimate]
+
+  - id: review
+    name: "Reviews & Analysis"
+    commands: [code-review, security-audit, perf-audit, accessibility-audit, scope-check, tech-debt]
+
+  - id: qa
+    name: "QA & Testing"
+    commands: [test-plan, test-case, bug-report, regression-suite, smoke-check, load-test]
+
+  - id: release
+    name: "Release"
+    commands: [release-checklist, deploy, changelog, hotfix]
+
+  - id: orchestration
+    name: "Team Orchestration (multi-agent)"
+    commands: [team-feature, team-release, team-bugfix, team-audit]
+
+review_modes:
+  full: "All director/lead gates run — best for production-bound work."
+  lean: "Only phase-end gates run (design-review, code-review, story-done)."
+  solo: "No gates — useful for prototypes and throwaway spikes."
